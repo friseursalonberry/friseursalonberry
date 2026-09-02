@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Friseursalon Berry </title>
 
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=hM3drw-xmU7XsENJ1VM2yVUngw4SF6eUkyPVEQnonufnbmJ5AMQBKUGOyc3j304RjDN3iNbTuX1-aP6qW6hCSG-3WhoNCurcjjgLIwfwB1R1lo0L__GmnKMkw2VSDKiJiS3-B9_AQDdZXWi7IpeCGyhRkAJTgjLYs5AhXrK6XvwiADyBCyx8FWpKnfYAifw0EUMXMCF1e18mgx7KIAu9XM7Tl69-HeP1aQpXVYj2Rg6V1iEGCWcmoNbaFLLPPy9saGgVdEU_5k0pzixkGpQTWQ" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ttqAw5u03gTxxJLwDmO2m5lrPpyqJCklat8PedaM4XsagFpfYPZ2JZQpSinJDRmTUCAbrGGahcya-WDxPtMeOJxcj9RwNmbGzpewi7RCo6EKc9Zb45XtlPZPfAmZHTAqW2IN7h99FxXojVDAWBvrliXajpwv-1NeNw8RQzXgpVoIY4KJwdpAuWT14VP6I-qUme0LLyK4YSbrGv7u_5qgwtTk12l4AgQI-6mmIkEl5TD7lYgz237eL4qvwMud6pmx_bW9b0HR2cJSEACHgMdOCQ" charset="UTF-8"></script><style>
     :root {
       --blue: #159ee8;
       --dark-blue: #0577b8;
@@ -377,6 +377,27 @@
       z-index: 50;
     }
 
+    .music-toggle {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      border: 0;
+      background: #111;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      z-index: 50;
+    }
+
+    .music-toggle:hover,
+    .music-toggle.playing {
+      background: var(--blue);
+    }
+
     @media(max-width: 950px) {
       header {
         flex-direction: column;
@@ -699,5 +720,50 @@
     </p>
 
   </div>
-</div></body>
+</div>
+
+  <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
+  <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
+
+  <script>
+    const music = document.getElementById('background-music');
+    const musicButton = document.getElementById('music-toggle');
+    music.volume = 0.18;
+
+    const savedTime = Number(sessionStorage.getItem('berryMusicTime'));
+    if (Number.isFinite(savedTime) && savedTime > 0) {
+      music.currentTime = savedTime;
+    }
+
+    function showMusicState(playing) {
+      musicButton.textContent = playing ? '⏸ Musik pausieren' : '♫ Musik starten';
+      musicButton.classList.toggle('playing', playing);
+      musicButton.setAttribute('aria-label', playing ? 'Hintergrundmusik pausieren' : 'Hintergrundmusik starten');
+    }
+
+    musicButton.addEventListener('click', async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          sessionStorage.setItem('berryMusicWanted', 'true');
+          showMusicState(true);
+        } catch (error) {
+          showMusicState(false);
+        }
+      } else {
+        music.pause();
+        sessionStorage.setItem('berryMusicWanted', 'false');
+        showMusicState(false);
+      }
+    });
+
+    music.addEventListener('timeupdate', () => {
+      sessionStorage.setItem('berryMusicTime', String(music.currentTime));
+    });
+
+    if (sessionStorage.getItem('berryMusicWanted') === 'true') {
+      music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
+    }
+  </script>
+</body>
 </html>

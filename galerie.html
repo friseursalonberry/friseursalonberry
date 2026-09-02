@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bilder aus dem Friseursalon Berry in Berlin-Spandau und ausgewählte Frisuren.">
   <title>Galerie | Friseursalon Berry</title>
-  <style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=2VPMcO6ul0kw7h2obplfNefulxuzzg2zCZs_vG9-UIyDg003WxQv7YPXXvpZw8lSZpUZdvX_lm8dBDLTj-U3gMvYDOxGNTxuX87T-3nN2hmIm0Lp0r1xS4sOYAUh39wAGyNA_ImU77_nySbgyC0ED_S-Lj3h8W81i4U2RaSohEGFsggALtPwdcPHTaWtDTnseonoquPQoxRVdd1MQYxejcY8WgY3mO1zeZg7c7oFLi8l9ouakVHAx3C75GTiBMCT7Ro-HGJ_JCUQ2zqUUhWN3w" charset="UTF-8"></script><style>
     :root {
       --blue: #159ee8;
       --dark-blue: #0577b8;
@@ -193,6 +193,27 @@
       font-size: 14px;
     }
 
+    .music-toggle {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      border: 0;
+      background: #111;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,.25);
+      z-index: 50;
+    }
+
+    .music-toggle:hover,
+    .music-toggle.playing {
+      background: var(--blue);
+    }
+
     @media (max-width: 950px) {
       .nav {
         flex-direction: column;
@@ -275,5 +296,49 @@
   <footer>
     © 2026 Friseursalon Berry · Berrin Turan · Pichelsdorfer Straße 130 · 13595 Berlin
   </footer>
+
+  <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
+  <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
+
+  <script>
+    const music = document.getElementById('background-music');
+    const musicButton = document.getElementById('music-toggle');
+    music.volume = 0.18;
+
+    const savedTime = Number(sessionStorage.getItem('berryMusicTime'));
+    if (Number.isFinite(savedTime) && savedTime > 0) {
+      music.currentTime = savedTime;
+    }
+
+    function showMusicState(playing) {
+      musicButton.textContent = playing ? '⏸ Musik pausieren' : '♫ Musik starten';
+      musicButton.classList.toggle('playing', playing);
+      musicButton.setAttribute('aria-label', playing ? 'Hintergrundmusik pausieren' : 'Hintergrundmusik starten');
+    }
+
+    musicButton.addEventListener('click', async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          sessionStorage.setItem('berryMusicWanted', 'true');
+          showMusicState(true);
+        } catch (error) {
+          showMusicState(false);
+        }
+      } else {
+        music.pause();
+        sessionStorage.setItem('berryMusicWanted', 'false');
+        showMusicState(false);
+      }
+    });
+
+    music.addEventListener('timeupdate', () => {
+      sessionStorage.setItem('berryMusicTime', String(music.currentTime));
+    });
+
+    if (sessionStorage.getItem('berryMusicWanted') === 'true') {
+      music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
+    }
+  </script>
 </body>
 </html>
