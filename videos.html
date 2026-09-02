@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Videos aus dem Friseursalon Berry in Berlin-Spandau.">
   <title>Videos | Friseursalon Berry</title>
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LQmuDT7gc_cP2F_ZVn9w3WWShbYVIWF3ZWkHzptvO0QgoQSCnFRUhiMJw4ODF-Zu96a8BCMVhOwc7hLKBjDo1wn-At4_1dZe97cdDLjJsBIMmOFgmSTxDLjVnLVj5NPZ6Z2tQZgwfx7pZtJeFu12DJaRg_whGo51fmQCqvkRXEa-R6rH9PrZMWHXYmk-6NvwtB3wn5_ljvBjP_u5-yNV1efVoIUtFe37IF5ESC3ndPt1TdnrY5YDyPTpXM00x_Z-H7NTPNYEmPvajMLNpQ_iyOVLgVIIk9f6PoIJujs8tH29g49gABYf_bixLlzvTeOd" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=QgbuJ9wYBjIdUQHpv7PbhJrJ1fpyv5D32U6ihrytiRgyEIArDtr7PfrO7-3nYswmRqUtRsYl4SeVSPflop-XUZ-9ecL6pa9tguK1kaxfbdfEF4ycKQEQVD_ArxU_NYbP_QbsXQtbTXqtGhzut5xTbnVrzR1chfwR1R3lpTE2VEY-Mhj3GVVDqc2Ezs5dBfxx_vI4mNwuUKei_obPKizITs4etebvn_R3eBj-jfCi-yqW5Y9y0iEhmgXClsdvo6j1ryPSKbkmE0ZEDKj0Cl7B3g" charset="UTF-8"></script><style>
     :root {
       --blue: #159ee8;
       --dark-blue: #0577b8;
@@ -126,31 +126,37 @@
       margin-bottom: 18px;
     }
 
-    .video-placeholder {
-      max-width: 820px;
+    .video-card {
+      max-width: 460px;
       margin: 38px auto 0;
-      padding: 75px 30px;
-      color: white;
-      background: linear-gradient(135deg, #111, #242424);
+      padding: 18px;
+      color: #222;
+      background: white;
       border-radius: 5px;
       box-shadow: 0 12px 35px rgba(0,0,0,.16);
     }
 
-    .play-symbol {
-      width: 72px;
-      height: 72px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 24px;
-      padding-left: 5px;
-      color: white;
-      background: var(--blue);
-      border-radius: 50%;
-      font-size: 31px;
+    .video-card video {
+      display: block;
+      width: 100%;
+      max-height: 72vh;
+      background: #000;
+      border-radius: 3px;
     }
 
-    .video-placeholder p {
-      color: #ddd;
+    .video-info {
+      padding: 22px 8px 8px;
+      text-align: left;
+    }
+
+    .video-info h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 9px;
+    }
+
+    .video-info p {
+      color: #555;
       line-height: 1.7;
     }
 
@@ -220,10 +226,15 @@
   <main>
     <div class="section-label">VIDEOS</div>
     <h2>Einblicke aus unserem Salon</h2>
-    <div class="video-placeholder">
-      <div class="play-symbol">▶</div>
-      <h2>Das erste Video folgt bald</h2>
-      <p>Sobald ein Salonvideo bereitsteht, kann es an dieser Stelle direkt abgespielt werden.</p>
+    <div class="video-card">
+      <video id="salon-video" controls playsinline preload="metadata" poster="salon-video-1-vorschau.jpg">
+        <source src="salon-video-1.mp4" type="video/mp4">
+        Ihr Browser unterstützt dieses Video leider nicht.
+      </video>
+      <div class="video-info">
+        <h3>Einblick in unsere Arbeit</h3>
+        <p>Professionelle Haararbeit mit Sorgfalt und einem Blick fürs Detail.</p>
+      </div>
     </div>
   </main>
 
@@ -273,6 +284,27 @@
     if (sessionStorage.getItem('berryMusicWanted') === 'true') {
       music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
     }
+
+    const salonVideo = document.getElementById('salon-video');
+    let resumeMusicAfterVideo = false;
+
+    salonVideo.addEventListener('play', () => {
+      resumeMusicAfterVideo = !music.paused;
+      if (resumeMusicAfterVideo) {
+        music.pause();
+        showMusicState(false);
+      }
+    });
+
+    function resumeBackgroundMusic() {
+      if (resumeMusicAfterVideo) {
+        music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
+        resumeMusicAfterVideo = false;
+      }
+    }
+
+    salonVideo.addEventListener('pause', resumeBackgroundMusic);
+    salonVideo.addEventListener('ended', resumeBackgroundMusic);
   </script>
 </body>
 </html>
