@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bilder aus dem Friseursalon Berry in Berlin-Spandau und ausgewählte Frisuren.">
+  <title>Galerie | Friseursalon Berry</title>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v0WhjrccJ3WV7-V7eEt9EtaPRYb9wAnHRyCvfdWQaY5DEGgsXzAVHZlQLWhUJR52Wh3k-kEkZ83hmsTojalimxVBWSOqLkBvZjCiSyLxG3jXLHXF_FT4sRvVbZqBmm28jTaWKP7na841JjSB--hV1_cD0usH07kwqqyzszr-bgXC3dsQblC4ArWudWoef5ywXU43BLyFRqWLaDBxCPGa9RfselZ6WOGVoxz9INEEZO8sqbNFggccI5bkIu2NJkvtSJqxZxeO6NzSkyy_C00cvheZzBI2VJ-7Smi2pl-6lCVpLmiinCaKQ_eoiqU4dqXx" charset="UTF-8"></script><style>
+    :root {
+      --blue: #159ee8;
+      --dark-blue: #0577b8;
+      --black: #0b0b0b;
+      --white: #fff;
+      --light: #f5f7fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #222;
+      background: var(--light);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      min-height: 330px;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.2)),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop") center/cover;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      padding: 26px 7%;
+      background: rgba(0,0,0,.38);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--blue);
+      font-size: 40px;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      color: var(--white);
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    .btn:hover { background: var(--dark-blue); }
+
+    .intro {
+      padding: 54px 7% 65px;
+      max-width: 850px;
+    }
+
+    .intro small {
+      display: block;
+      color: #ddd;
+      font-size: 13px;
+      letter-spacing: 5px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .intro p {
+      max-width: 680px;
+      color: #eee;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 75px 5% 90px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 0 auto 45px;
+      color: #555;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .photo {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      background: #ddd;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    }
+
+    .photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .photo:hover img { transform: scale(1.035); }
+
+    .photo span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 35px 20px 18px;
+      color: white;
+      background: linear-gradient(transparent, rgba(0,0,0,.82));
+      font-weight: bold;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 52px;
+    }
+
+    footer {
+      padding: 38px 7%;
+      color: #ccc;
+      background: #101010;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 950px) {
+      .nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links { justify-content: center; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 46px; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { gap: 14px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .photo { min-height: 540px; }
+      h1 { font-size: 39px; }
+      h2 { font-size: 35px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="logo" href="index.html">Friseursalon<span>Berry</span></a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="index.html">Startseite</a>
+        <a href="index.html#ueber-uns">Über uns</a>
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#preise">Preise</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a class="btn" href="tel:+491742117390">📞 Jetzt anrufen</a>
+      </nav>
+    </div>
+    <div class="intro">
+      <small>FRISEURSALON BERRY</small>
+      <h1>Unsere Galerie</h1>
+      <p>Entdecken Sie unseren Salon und ausgewählte Arbeiten. Neue Bilder und Frisuren werden hier nach und nach ergänzt.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-label">EINBLICKE</div>
+    <h2>Salon &amp; Frisuren</h2>
+    <p class="lead">Ein heller Salon, persönliche Atmosphäre und sorgfältige Arbeit – verschaffen Sie sich einen ersten Eindruck.</p>
+
+    <!-- Für weitere Bilder einfach einen vollständigen .photo-Block kopieren und den Dateinamen ändern. -->
+    <section class="gallery-grid" aria-label="Bildergalerie">
+      <figure class="photo">
+        <img src="assets/salon-wartebereich.jpg" alt="Heller Wartebereich im Friseursalon Berry">
+        <span>Unser Wartebereich</span>
+      </figure>
+      <figure class="photo">
+        <img src="assets/salon-empfang.jpg" alt="Empfangsbereich im Friseursalon Berry">
+        <span>Empfang &amp; Beratung</span>
+      </figure>
+      <figure class="photo">
+        <img src="assets/salon-waschplatz.jpg" alt="Waschplatz und Arbeitsplätze im Friseursalon Berry">
+        <span>Waschplatz</span>
+      </figure>
+      <figure class="photo">
+        <img src="assets/salon-arbeitsplaetze.jpg" alt="Helle Arbeitsplätze mit Spiegeln im Friseursalon Berry">
+        <span>Unsere Arbeitsplätze</span>
+      </figure>
+      <figure class="photo">
+        <img src="assets/hochsteckfrisur-hinten.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von hinten">
+        <span>Festliche Hochsteckfrisur</span>
+      </figure>
+      <figure class="photo">
+        <img src="assets/hochsteckfrisur-seite.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von der Seite">
+        <span>Hochsteckfrisur mit Blütenschmuck</span>
+      </figure>
+    </section>
+
+    <div class="back">
+      <a class="btn" href="index.html">← Zurück zur Startseite</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Friseursalon Berry · Berrin Turan · Pichelsdorfer Straße 130 · 13595 Berlin
+  </footer>
+</body>
+</html>
