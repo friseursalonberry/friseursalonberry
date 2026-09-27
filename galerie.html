@@ -74,6 +74,21 @@
       .photo span{padding:35px 10px 10px;font-size:.7rem}.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-grid>div:first-child{grid-column:1/-1}
       .quick-call{bottom:18px;right:12px}.music-toggle{bottom:18px;left:12px}
     }
+  
+    /* Berry Zusatzfunktionen */
+    .action-dock{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;gap:8px;align-items:center}
+    .action-dock a{display:flex;align-items:center;justify-content:center;min-height:46px;padding:11px 16px;border-radius:40px;box-shadow:0 14px 35px rgba(0,0,0,.32);font-size:.76rem;font-weight:700;letter-spacing:.02em}
+    .action-call{background:#f4eadc;color:#070d20}
+    .action-book{background:#dfbd87;color:#070d20}
+    .social-link{display:inline-flex;align-items:center;gap:7px}
+    .social-link strong{font-family:inherit}
+    @media(max-width:600px){
+      .action-dock{left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr}
+      .action-dock a{padding:10px 8px;font-size:.72rem}
+      body{padding-bottom:66px}
+      .music-toggle{bottom:76px!important}
+    }
+
   </style>
 </head>
 <body>
@@ -130,15 +145,18 @@
       <div class="footer-grid">
         <div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div>
         <div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div>
-        <div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div>
+        <div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><p><a class="social-link" href="https://www.tiktok.com/@friseursalon.berry" target="_blank" rel="noopener noreferrer">♪ TikTok · @friseursalon.berry</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div>
         <div><h4>Informationen</h4><p><a href="index.html#preise">Preisliste</a><br><a href="index.html#impressum">Impressum</a><br><a href="index.html#datenschutz">Datenschutz</a></p></div>
       </div>
       <div class="payment">Zahlung vor Ort: Bar · PayPal</div>
       <div class="copyright">© 2026 Friseursalon Berry · Berrin Turan</div>
     </div>
   </footer>
-
-  <a class="quick-call" href="tel:+491742117390" aria-label="Friseursalon Berry anrufen">☎ Anrufen</a>
+  
+  <div class="action-dock" aria-label="Schnellaktionen">
+    <a class="action-call" href="tel:+491742117390">☎ Anrufen</a>
+    <a class="action-book" href="https://friseursalonberry.setmore.com" target="_blank" rel="noopener noreferrer">📅 Termin buchen</a>
+  </div>
   <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
   <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
 
