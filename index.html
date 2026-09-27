@@ -1,771 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Friseursalon Berry </title>
-
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=KotwGSm0llosmIq6gKzI6v2XPzO1IG4A9dhlx6z9U2tLEts7BFPZWjS9DOShLRg0DDLfZH8hEZpEjFal9Znuc3Eka4KYlY78tRPbBuBbMA2EnWd_9J2JzD4H08H5tjn4n3Z_esEi4-SFQP6LLJldlM7-6jq3QnSPNHHa0vJMlZWXSUqvQh9DtsiZZFDsvaqKjf-N6XjpJ9LpWFAmWt8-pc-ACh7KX8HjFzL0Xi2HbHxTRhVP0vJLxJDOOctNwPojaiUyH9mSLs8zVLklX7GIlw" charset="UTF-8"></script><style>
-    :root {
-      --blue: #159ee8;
-      --dark-blue: #0577b8;
-      --black: #0b0b0b;
-      --white: #ffffff;
-      --light: #f5f7fa;
-      --grey: #666;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: #fff;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .hero {
-      min-height: 760px;
-      color: white;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.55), rgba(0,0,0,.15)),
-        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop");
-      background-size: cover;
-      background-position: center;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 7%;
-      background: rgba(0,0,0,.35);
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      line-height: 1.1;
-    }
-
-    .logo span {
-      color: var(--blue);
-      display: block;
-      font-size: 48px;
-      font-style: italic;
-    }
-
-    .logo small {
-      display: block;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 5px;
-      margin-top: 8px;
-      color: #ddd;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #eee;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: var(--blue);
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 15px 26px;
-      border-radius: 3px;
-      font-weight: bold;
-      border: 1px solid var(--blue);
-    }
-
-    .btn:hover {
-      background: var(--dark-blue);
-    }
-
-    .btn.outline {
-      background: transparent;
-      border-color: #fff;
-    }
-
-    .hero-content {
-      width: 48%;
-      margin-left: 7%;
-      padding-top: 115px;
-    }
-
-    .eyebrow {
-      letter-spacing: 5px;
-      font-size: 14px;
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: 72px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      line-height: 1.7;
-      color: #eee;
-      margin-bottom: 30px;
-    }
-
-    .phone-box {
-      background: rgba(255,255,255,.1);
-      border-left: 5px solid var(--blue);
-      padding: 22px;
-      margin: 30px 0;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      background: linear-gradient(90deg, #058bd2, #16a9f0);
-      color: white;
-      padding: 38px 7%;
-      text-align: center;
-      gap: 20px;
-    }
-
-    .feature {
-      border-right: 1px solid rgba(255,255,255,.3);
-      padding: 0 22px;
-    }
-
-    .feature:last-child {
-      border-right: none;
-    }
-
-    .icon {
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .feature h3 {
-      font-size: 13px;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-    }
-
-    .feature p {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .about-price {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 1fr;
-      background: var(--light);
-    }
-
-    .salon-img {
-      min-height: 430px;
-      background: url("salon-empfang.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .about, .prices {
-      padding: 70px 55px;
-    }
-
-    .section-label {
-      letter-spacing: 4px;
-      color: var(--blue);
-      font-size: 12px;
-      margin-bottom: 18px;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-family: Georgia, serif;
-      font-size: 42px;
-      line-height: 1.15;
-      margin-bottom: 22px;
-    }
-
-    .about p {
-      line-height: 1.8;
-      margin-bottom: 24px;
-      color: #444;
-    }
-
-    .dark-btn {
-      display: inline-block;
-      background: #111;
-      color: white;
-      padding: 15px 28px;
-      font-weight: bold;
-      font-size: 13px;
-      border-radius: 3px;
-    }
-
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 25px;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
-      font-size: 15px;
-    }
-
-    .price-row b {
-      white-space: nowrap;
-      color: var(--dark-blue);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: #111;
-    }
-
-    .gallery-photo {
-      position: relative;
-      min-height: 390px;
-      overflow: hidden;
-    }
-
-    .gallery-photo img {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      object-fit: cover;
-      transition: transform .45s ease;
-    }
-
-    .gallery-photo:hover img {
-      transform: scale(1.04);
-    }
-
-    .gallery-text {
-      background: #111;
-      color: white;
-      padding: 55px 7%;
-      grid-column: 1 / -1;
-      text-align: center;
-    }
-
-    .gallery-text h2 {
-      margin-bottom: 14px;
-    }
-
-    .cta {
-      background: #eaf7ff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 45px 14%;
-    }
-
-    .cta h2 {
-      font-size: 31px;
-      margin: 0 0 8px;
-    }
-
-    footer {
-      background: #101010;
-      color: white;
-      display: grid;
-      grid-template-columns: 1.3fr 1.4fr 1fr 1fr;
-      gap: 40px;
-      padding: 60px 7% 35px;
-    }
-
-    footer h4 {
-      letter-spacing: 3px;
-      font-size: 13px;
-      margin-bottom: 22px;
-      color: var(--blue);
-    }
-
-    footer p, footer a {
-      color: #ddd;
-      font-size: 14px;
-      line-height: 2;
-    }
-
-    .copyright {
-      grid-column: 1 / -1;
-      text-align: center;
-      color: #aaa;
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding-top: 25px;
-      margin-top: 20px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.75);
-      z-index: 99;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal:target {
-      display: flex;
-    }
-
-    .modal-box {
-      background: white;
-      color: #222;
-      max-width: 720px;
-      width: 100%;
-      padding: 35px;
-      border-radius: 5px;
-      max-height: 85vh;
-      overflow: auto;
-    }
-
-    .close {
-      float: right;
-      font-size: 30px;
-      font-weight: bold;
-      color: #111;
-    }
-
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #25d366;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-weight: bold;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
-      z-index: 50;
-    }
-
-    .music-toggle {
-      position: fixed;
-      left: 22px;
-      bottom: 22px;
-      border: 0;
-      background: #111;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font: inherit;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
-      z-index: 50;
-    }
-
-    .music-toggle:hover,
-    .music-toggle.playing {
-      background: var(--blue);
-    }
-
-    @media(max-width: 950px) {
-      header {
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      nav {
-        justify-content: center;
-      }
-
-      .hero-content {
-        width: 86%;
-        padding-top: 70px;
-      }
-
-      h1 {
-        font-size: 48px;
-      }
-
-      .features,
-      .about-price,
-      footer {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-photo {
-        min-height: 330px;
-      }
-
-      .feature {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,.25);
-        padding-bottom: 22px;
-      }
-
-      .cta {
-        flex-direction: column;
-        gap: 24px;
-        text-align: center;
-      }
-    }
-
-    @media(max-width: 600px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-photo {
-        min-height: 440px;
-      }
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Friseursalon Berry in Berlin-Spandau: Haarschnitte, Farbe, Styling und professionelle Haarverlängerung. Termine telefonisch vereinbaren.">
+  <title>Friseursalon Berry · Dein Moment in Berlin-Spandau</title>
+  <style>
+    :root{--ink:#222039;--navy:#242339;--plum:#41334f;--muted:#655e6a;--cream:#faf7f2;--sand:#ede3d5;--gold:#b99b79;--line:#ded4cb;--white:#fff;--shadow:0 20px 60px rgba(37,31,45,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}button,a{font:inherit}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.13}h2{font-size:clamp(2.25rem,4.2vw,4rem)}p{color:var(--muted)}.wrap{width:min(1200px,88%);margin:auto}.eyebrow{color:#79667f;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;margin-bottom:18px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:3px;background:var(--navy);color:white;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:1px solid var(--navy);transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:var(--plum)}.btn.light{background:transparent;color:var(--navy)}.btn.light:hover{background:var(--sand)}.btn.cream{background:var(--cream);border-color:var(--cream);color:var(--navy)}.btn.cream:hover{background:var(--sand)}[hidden]{display:none!important}
+    .site-header{background:rgba(250,247,242,.98);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}.header-inner{width:min(1350px,94%);min-height:84px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;flex-direction:column;line-height:1;color:var(--navy);white-space:nowrap}.brand strong{font:400 2.1rem Georgia,serif;letter-spacing:.045em}.brand small{text-transform:uppercase;letter-spacing:.28em;font-size:.62rem;margin-top:8px;color:#8b7590}.site-header nav{display:flex;align-items:center;gap:clamp(12px,1.65vw,26px);font-size:.84rem}.site-header nav a:hover,footer a:hover{color:#9b7392}.header-call{white-space:nowrap}.mobile-call{display:none}
+    .hero{background:linear-gradient(135deg,#fbf9f5,#eee6e1);overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:660px;align-items:center;gap:6vw;padding:66px 0 80px}.hero-copy h1{font-size:clamp(3.2rem,6.6vw,6.6rem);letter-spacing:-.045em;max-width:740px;margin:0 0 26px}.hero-copy h1 em{font-style:italic;color:#7d6482}.hero-copy>p:not(.eyebrow){font-size:1.06rem;max-width:570px;margin-bottom:29px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.hero-note{font-size:.78rem;margin:19px 0 0}.hero-visual{position:relative;min-height:560px}.hero-visual:before{content:"";position:absolute;inset:32px -28px -23px 28px;border:1px solid #c0a988}.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;box-shadow:var(--shadow)}.hero-label{position:absolute;left:-36px;bottom:34px;background:#fffdf9;padding:19px 25px;box-shadow:var(--shadow);font:italic 1.3rem Georgia,serif;color:var(--plum)}
+    .intro-strip{border-block:1px solid var(--line);background:#fffdf9}.intro-strip .wrap{display:flex;justify-content:center;flex-wrap:wrap;gap:20px 75px;padding:24px 0;color:var(--plum);font-size:.78rem;text-transform:uppercase;letter-spacing:.17em}.intro-strip span:before{content:"✦";color:var(--gold);margin-right:14px}
+    section{scroll-margin-top:90px}.section-pad{padding:110px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 52px}.section-head h2{margin-bottom:17px}.section-head p:last-child{margin-bottom:0}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.service-card{background:#fffdf9;border:1px solid var(--line);padding:36px;min-height:230px;transition:transform .2s,box-shadow .2s}.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.service-card .mark{font:italic 2rem Georgia,serif;color:#9c819b}.service-card h3{font-size:1.5rem;margin:18px 0 10px}.service-card p{font-size:.9rem;margin:0}.service-card.featured{background:var(--navy);border-color:var(--navy)}.service-card.featured h3,.service-card.featured p{color:white}.service-card.featured .mark{color:#d5bfa5}
+    .about{background:#eee7df}.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:8vw;align-items:center}.about-visual{height:570px;position:relative}.about-visual img{width:100%;height:100%;object-fit:cover}.about-visual:after{content:"";position:absolute;inset:22px -20px -22px 20px;border:1px solid #bca885;pointer-events:none}.about-copy h2{margin-bottom:23px}.about-copy p{max-width:570px}.about-copy .btn{margin-top:16px}
+    .price-area{background:#fffdf9}.price-feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.price-feature h2{max-width:480px}.price-list{border-top:1px solid var(--line)}.price-row{display:flex;justify-content:space-between;gap:25px;border-bottom:1px solid var(--line);padding:16px 0;font-size:.95rem}.price-row b{font-weight:600;color:var(--plum);text-align:right}.price-actions{margin-top:25px}.price-footnote{font-size:.79rem;margin-top:18px}
+    .gallery-section{background:var(--cream)}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery-grid img{height:325px;width:100%;object-fit:cover}.gallery-grid img:nth-child(2){object-position:center}.gallery-links{text-align:center;margin-top:34px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+    .booking{background:var(--navy);color:white;text-align:center;padding:90px 0}.booking h2{margin-bottom:18px}.booking p{color:#e6dfe6;max-width:630px;margin:0 auto 27px}.booking .booking-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.booking .btn.light{border-color:#d1c0cb;color:#fff}.booking .btn.light:hover{background:var(--plum)}
+    footer{background:#1b1a2b;color:#fff;padding:70px 0 25px}.footer-grid{display:grid;grid-template-columns:1.4fr 1.2fr 1fr 1fr;gap:38px}footer h3{font:400 1.7rem Georgia,serif;margin-bottom:15px}footer h4{color:#d5bcaa;letter-spacing:.16em;font-size:.72rem;text-transform:uppercase;margin-bottom:17px}footer p,footer a{color:#e2dce0;font-size:.86rem;line-height:1.9}footer .copyright{border-top:1px solid #ffffff25;padding-top:22px;margin-top:48px;text-align:center;font-size:.76rem;color:#b9b2bb}.quick-call{position:fixed;right:20px;bottom:20px;z-index:29;background:var(--plum);color:white;padding:12px 19px;border-radius:40px;box-shadow:var(--shadow);font-size:.8rem;font-weight:700}
+    .music-toggle{position:fixed;left:20px;bottom:20px;z-index:29;background:var(--cream);color:var(--navy);border:1px solid var(--line);box-shadow:var(--shadow);padding:12px 18px;border-radius:40px;cursor:pointer;font-size:.8rem;font-weight:700}.music-toggle.playing{background:var(--plum);color:white}
+    .modal{display:none;position:fixed;inset:0;z-index:80;background:rgba(22,20,36,.82);padding:22px;align-items:center;justify-content:center}.modal:target{display:flex}.modal-box{background:var(--cream);width:min(720px,100%);max-height:88vh;overflow:auto;padding:clamp(25px,5vw,48px);box-shadow:var(--shadow)}.modal-box h2{font-size:2.5rem}.modal-box .close{float:right;font-size:2rem;line-height:1}.modal-box .price-row{font-size:.9rem}
+    @media(max-width:1100px){.site-header nav{gap:12px}.site-header nav a{font-size:.74rem}.header-call{display:none}.hero-grid{min-height:590px}.hero-visual{min-height:470px}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.site-header{position:static}.header-inner{display:block;padding:18px 0}.brand{text-align:center;align-items:center}.site-header nav{margin-top:17px;justify-content:center;flex-wrap:wrap;gap:8px 16px}.hero-grid,.about-grid,.price-feature{grid-template-columns:1fr}.hero-grid{gap:40px;padding:60px 0}.hero-copy h1{font-size:clamp(3.1rem,11vw,5rem)}.hero-visual{min-height:450px;margin:0 20px 0 10px}.hero-label{left:-10px}.section-pad{padding:75px 0}.service-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:55px}.about-visual{height:450px;margin-right:20px}.price-feature{gap:22px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid img{height:270px}}
+    @media(max-width:520px){.site-header nav a{font-size:.73rem}.wrap{width:88%}.hero-grid{padding-top:50px}.hero-visual{min-height:360px}.hero-label{font-size:1rem;padding:12px}.intro-strip .wrap{gap:8px 15px;padding:20px 0;font-size:.66rem}.service-grid{grid-template-columns:1fr}.service-card{min-height:auto}.gallery-grid{grid-template-columns:1fr 1fr;gap:7px}.gallery-grid img{height:190px}.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-grid>div:first-child{grid-column:1/-1}.quick-call{bottom:18px;right:12px}.music-toggle{bottom:18px;left:12px}.booking{padding:70px 0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
-
 <body>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="#start" aria-label="Friseursalon Berry Startseite"><strong>Berry</strong><small>Friseursalon · Berlin</small></a>
+    <nav aria-label="Hauptnavigation"><a href="#start">Start</a><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#preise">Preise</a><a href="#galerie">Galerie</a><a href="videos.html">Videos</a><a href="#kontakt">Kontakt</a><a href="#termin">Termin</a></nav>
+    <a class="btn header-call" href="tel:+491742117390">Termin anfragen</a>
+  </div></header>
 
-  <section class="hero" id="start">
-    <header>
-      <div class="logo">
-        Friseursalon
-        <span>Berry</span>
+  <main>
+    <section class="hero" id="start"><div class="wrap hero-grid"><div class="hero-copy">
+      <p class="eyebrow">Dein Friseursalon in Berlin-Spandau</p>
+      <h1>Schönes Haar.<br><em>Schöne Zeit.</em></h1>
+      <p>Ein neuer Schnitt, frische Farbe oder ein Look für den besonderen Moment: Bei Berry nehmen wir uns Zeit für dich und deine Wünsche.</p>
+      <div class="hero-actions"><a class="btn" href="#termin">Termin vereinbaren</a><a class="btn light" href="#leistungen">Leistungen entdecken</a></div>
+      <p class="hero-note">Pichelsdorfer Straße 130 · 13595 Berlin</p>
+    </div><div class="hero-visual"><img src="salon-arbeitsplaetze.jpg" alt="Helle Friseurplätze im Friseursalon Berry" fetchpriority="high"><span class="hero-label">Zeit für dich.</span></div></div></section>
 
+    <div class="intro-strip"><div class="wrap"><span>Persönliche Beratung</span><span>Mit Liebe zum Detail</span><span>Damen & Herren</span></div></div>
+
+    <section class="section-pad" id="leistungen"><div class="wrap"><div class="section-head"><p class="eyebrow">Unsere Leistungen</p><h2>Ein Look, der zu dir passt.</h2><p>Ob dezent oder eine ganz neue Veränderung: Wir beraten dich persönlich und arbeiten mit Gespür für dein Haar.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><span class="mark">01</span><h3>Schnitt & Styling</h3><p>Haarschnitte, Pflege und Styling für Damen, Herren und Kinder.</p></article>
+        <article class="service-card"><span class="mark">02</span><h3>Farbe & Strähnen</h3><p>Von frischer Ansatzfarbe bis zu Strähnen und einer neuen Komplettfarbe.</p></article>
+        <article class="service-card featured"><span class="mark">03</span><h3>Professionelle Haarverlängerung</h3><p>Mehr Länge und Fülle, abgestimmt auf deinen gewünschten Look. Preis nach persönlicher Beratung.</p></article>
+        <article class="service-card"><span class="mark">04</span><h3>Festliche Frisuren</h3><p>Hochsteckfrisuren und Hochzeitsfrisuren für besondere Anlässe.</p></article>
+        <article class="service-card"><span class="mark">05</span><h3>Wellen & Volumen</h3><p>Dauerwelle und Volumenwelle für Bewegung im Haar.</p></article>
+        <article class="service-card"><span class="mark">06</span><h3>Beauty-Details</h3><p>Make-up sowie Augenbrauen und Wimpern für den letzten Schliff.</p></article>
       </div>
+    </div></section>
 
-      <nav>
-        <a href="#start">Startseite</a>
-        <a href="#ueber-uns">Über uns</a>
-        <a href="#leistungen">Leistungen</a>
-        <a href="#preise">Preise</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="videos.html">Videos</a>
-        <a href="#kontakt">Kontakt</a>
-        <a class="btn" href="tel:+491742117390">📞 Jetzt anrufen</a>
-      </nav>
-    </header>
+    <section class="about section-pad" id="ueber-uns"><div class="wrap about-grid"><div class="about-visual"><img src="salon-empfang.jpg" alt="Empfang im Friseursalon Berry" loading="lazy"></div><div class="about-copy"><p class="eyebrow">Willkommen bei Berry</p><h2>Ein Ort zum Ankommen und Wohlfühlen.</h2><p>Im Friseursalon Berry in der Pichelsdorfer Straße 130 erwartet dich ein heller, moderner Salon mit persönlicher Atmosphäre.</p><p>Bei Friseurmeisterin Berrin Turan steht dein Wunsch im Mittelpunkt. Vom Haarschnitt über Farbe und Hochsteckfrisuren bis zur professionellen Haarverlängerung beraten wir dich ehrlich und individuell.</p><a class="btn light" href="#biografie">Mehr über Berrin</a></div></div></section>
 
-    <div class="hero-content">
-      <div class="eyebrow">DAMEN & HERREN</div>
-      <h1>Ihr Friseur in Berlin-Spandau</h1>
-      <p>
-        Willkommen im Friseursalon Berry. Wir nehmen uns Zeit für Ihren Look –
-        vom klassischen Haarschnitt bis zu Farbe, Strähnen, Styling und besonderen Anlässen.
-      </p>
+    <section class="price-area section-pad" id="preise"><div class="wrap price-feature"><div><p class="eyebrow">Transparente Orientierung</p><h2>Leistungen & Preise</h2><p>Hier findest du eine erste Orientierung. Der endgültige Preis hängt unter anderem von Haarlänge, Aufwand und Material ab.</p><div class="price-actions"><a class="btn" href="#preise-modal">Gesamte Preisliste ansehen</a></div></div><div class="price-list"><div class="price-row"><span>Haarschnitt</span><b>ab 25 €</b></div><div class="price-row"><span>Herrenhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Kinderhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Ansatzfarbe ab 2 cm</span><b>ab 35 €</b></div><div class="price-row"><span>Professionelle Haarverlängerung</span><b>Preis auf Anfrage</b></div><p class="price-footnote">Wir beraten dich gern persönlich zu deinem Wunschergebnis.</p></div></div></section>
 
-      <div class="phone-box">
-        <strong>Terminvereinbarung ausschließlich telefonisch</strong><br>
-        📞 <a href="tel:+491742117390">0174 211 73 90</a>
-      </div>
+    <section class="gallery-section section-pad" id="galerie"><div class="wrap"><div class="section-head"><p class="eyebrow">Einblicke</p><h2>Unser Salon & unsere Arbeiten.</h2><p>Entdecke die Atmosphäre bei Berry und einen kleinen Einblick in unsere Arbeit.</p></div><div class="gallery-grid"><img src="salon-wartebereich.jpg" alt="Wartebereich im Friseursalon Berry" loading="lazy"><img src="salon-empfang.jpg" alt="Empfangsbereich im Friseursalon Berry" loading="lazy"><img src="salon-waschplatz.jpg" alt="Waschplatz im Friseursalon Berry" loading="lazy"><img src="salon-arbeitsplaetze.jpg" alt="Friseurplätze mit Spiegeln" loading="lazy"><img src="hochsteckfrisur-hinten.jpg" alt="Hochsteckfrisur mit weißen Blüten von hinten" loading="lazy"><img src="hochsteckfrisur-seite.jpg" alt="Hochsteckfrisur mit weißen Blüten von der Seite" loading="lazy"></div><div class="gallery-links"><a class="btn light" href="galerie.html">Mehr Bilder</a><a class="btn light" href="videos.html">Videos ansehen</a></div></div></section>
 
-     <div class="hero-buttons">
-     <a class="btn outline" href="#preise">Preise ansehen</a>
-      </div>
-    </div>
-  </section>
+    <section class="booking" id="termin"><div class="wrap"><p class="eyebrow" style="color:#d6bba8">Dein nächster Besuch</p><h2>Wir freuen uns auf dich.</h2><p>Vereinbare deinen Termin derzeit telefonisch. Die Onlinebuchung wird freigeschaltet, sobald der Salonkalender vollständig eingerichtet ist.</p><div class="booking-actions"><a class="btn cream" href="tel:+491742117390">0174 211 73 90 anrufen</a><a class="btn light booking-online" href="#termin" hidden>Online-Termin buchen</a></div></div></section>
+  </main>
 
-  <section class="features" id="leistungen">
-    <div class="feature">
-      <div class="icon">✂</div>
-      <h3>DAMEN & HERREN</h3>
-      <p>Haarschnitte, Styling und Pflege für Damen und Herren.</p>
-    </div>
+  <footer id="kontakt"><div class="wrap"><div class="footer-grid"><div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div><div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div><div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div><div><h4>Informationen</h4><p><a href="#preise-modal">Preisliste</a><br><a href="#impressum">Impressum</a><br><a href="#datenschutz">Datenschutz</a><br><a href="#cookies">Cookie-Einstellungen</a></p></div></div><div class="copyright">© 2026 Friseursalon Berry · Berrin Turan</div></div></footer>
+  <a class="quick-call" href="tel:+491742117390" aria-label="Friseursalon Berry anrufen">☎ Anrufen</a>
 
-    <div class="feature">
-     <div class="icon">★★★★★</div>
-      <h3>BERATUNG</h3>
-      <p>Persönliche Beratung passend zu Typ, Haar und Wunsch.</p>
-    </div>
-
-    <div class="feature">
-      <div class="icon">♡</div>
-      <h3>WOHLFÜHLEN</h3>
-      <p>Freundliche Atmosphäre und ein Salon zum Ankommen.</p>
-    </div>
-
-    <div class="feature">
-      <div class="icon">☑</div>
-      <h3>QUALITÄT</h3>
-      <p>Sorgfältige Arbeit mit Erfahrung und Liebe zum Detail.</p>
-    </div>
-  </section>
-
-  <section class="about-price" id="ueber-uns">
-    <div class="salon-img"></div>
-
-    <div class="about">
-      <div class="section-label">ÜBER UNS</div>
-      <h2>Friseursalon Berry</h2>
-      <p>
-        Im Friseursalon Berry in der Pichelsdorfer Straße 130 erwartet Sie ein heller,
-        moderner Salon mit persönlicher Atmosphäre.
-      </p>
-      <p>
-        Ob neuer Haarschnitt, frische Farbe, Strähnen, Hochsteckfrisur oder Make-up:
-        Wir beraten Sie ehrlich und setzen Ihren Wunsch professionell um.
-      </p>
-      <a class="dark-btn" href="#biografie">Weiterlesen</a>
-    </div>
-
-    <div class="prices" id="preise">
-      <div class="section-label">PREISE</div>
-
-      <div class="price-row"><span>Dauerwelle</span><b>ab 80 €</b></div>
-      <div class="price-row"><span>Volumenwelle</span><b>ab 60 €</b></div>
-      <div class="price-row"><span>Herrenhaarschnitt</span><b>ab 20 €</b></div>
-      <div class="price-row"><span>Herren Bart</span><b>ab 10 €</b></div>
-      <div class="price-row"><span>Haarschnitt</span><b>ab 25 €</b></div>
-      <div class="price-row"><span>Kinderhaarschnitt</span><b>ab 20 €</b></div>
-      <div class="price-row"><span>Ansatzfarbe ab 2 cm</span><b>ab 35 €</b></div>
-      <br>
-      <a class="dark-btn" href="#preise-modal">Alle Preise ansehen</a>
-    </div>
-  </section>
-
-  <section class="gallery" id="galerie">
-    <div class="gallery-photo">
-      <img src="salon-wartebereich.jpg" alt="Heller Wartebereich im Friseursalon Berry" loading="lazy">
-    </div>
-    <div class="gallery-photo">
-      <img src="salon-empfang.jpg" alt="Empfangsbereich im Friseursalon Berry" loading="lazy">
-    </div>
-    <div class="gallery-photo">
-      <img src="salon-waschplatz.jpg" alt="Waschplatz und Arbeitsplätze im Friseursalon Berry" loading="lazy">
-    </div>
-    <div class="gallery-photo">
-      <img src="salon-arbeitsplaetze.jpg" alt="Helle Arbeitsplätze mit Spiegeln im Friseursalon Berry" loading="lazy">
-    </div>
-    <div class="gallery-photo">
-      <img src="hochsteckfrisur-hinten.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von hinten" loading="lazy">
-    </div>
-    <div class="gallery-photo">
-      <img src="hochsteckfrisur-seite.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von der Seite" loading="lazy">
-    </div>
-
-    <div class="gallery-text">
-      <div class="section-label">GALERIE</div>
-      <h2>Unser Salon &amp; unsere Arbeiten</h2>
-      <p style="line-height:1.7; margin-bottom:25px;">
-        Lernen Sie unseren hellen Salon kennen und entdecken Sie einen kleinen Einblick in unsere Arbeit.
-      </p>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div>
-      <h2>Termin telefonisch vereinbaren</h2>
-      <p>Rufen Sie uns gerne während der Öffnungszeiten an.</p>
-    </div>
-
-    <a class="btn" href="tel:+491742117390">📞 0174 211 73 90</a>
-  </section>
-
-  <footer id="kontakt">
-    <div>
-      <h4>KONTAKT</h4>
-      <p>
-        Berrin Turan<br>
-        Friseursalon Berry<br>
-        Pichelsdorfer Straße 130<br>
-        13595 Berlin
-      </p>
-      <p>
-        Telefon:<br>
-        <a href="tel:+491742117390">0174 211 73 90</a>
-      </p>
-    </div>
-
-    <div>
-      <h4>ÖFFNUNGSZEITEN</h4>
-      <p>
-        Montag: 09:00 – 13:00 Uhr<br>
-        Dienstag – Freitag: 09:00 – 18:00 Uhr<br>
-        Samstag: 09:00 – 15:00 Uhr<br>
-        Sonntag: Geschlossen
-      </p>
-    </div>
-
-    <div>
-      <h4>NAVIGATION</h4>
-      <p>
-        <a href="#start">Startseite</a><br>
-        <a href="#ueber-uns">Über uns</a><br>
-        <a href="#leistungen">Leistungen</a><br>
-        <a href="#preise">Preise</a><br>
-        <a href="galerie.html">Galerie</a><br>
-        <a href="videos.html">Videos</a><br>
-        <a href="#kontakt">Kontakt</a>
-      </p>
-    </div>
-
-    <div>
-      <h4>RECHTLICHES</h4>
-      <p>
-        <a href="#impressum">Impressum</a><br>
-        <a href="#datenschutz">Datenschutz</a><br>
-        <a href="#cookies">Cookie-Einstellungen</a>
-      </p>
-    </div>
-
-    <div class="copyright">
-      © 2026 Friseursalon Berry | Berrin Turan | Alle Angaben ohne Gewähr
-    </div>
-  </footer>
-
-  <a class="whatsapp" href="tel:+491742117390">📞 Anrufen</a>
-
-  <div id="preise-modal" class="modal">
-    <div class="modal-box">
-      <a href="#" class="close">×</a>
-      <h2>Preisliste</h2>
-
-      <div class="price-row"><span>Dauerwelle</span><b>ab 80 €</b></div>
-      <div class="price-row"><span>Volumenwelle</span><b>ab 60 €</b></div>
-      <div class="price-row"><span>Herrenhaarschnitt</span><b>ab 20 €</b></div>
-      <div class="price-row"><span>Herren Bart</span><b>ab 10 €</b></div>
-      <div class="price-row"><span>Haarschnitt</span><b>ab 25 €</b></div>
-      <div class="price-row"><span>Kinderhaarschnitt</span><b>ab 20 €</b></div>
-      <div class="price-row"><span>Ansatzfarbe ab 2 cm</span><b>ab 35 €</b></div>
-      <div class="price-row"><span>Komplettfarbe</span><b>ab 50 €</b></div>
-      <div class="price-row"><span>Strähnen Oberkopf</span><b>ab 60 €</b></div>
-      <div class="price-row"><span>Strähnen Komplett</span><b>ab 100 €</b></div>
-      <div class="price-row"><span>Hochzeitsfrisur</span><b>ab 150 €</b></div>
-      <div class="price-row"><span>Hochsteckfrisur</span><b>ab 60 €</b></div>
-      <div class="price-row"><span>Make-up</span><b>ab 50 €</b></div>
-      <div class="price-row"><span>Augenbrauen/Wimpern färben</span><b>13 €</b></div>
-      <div class="price-row"><span>Augenbrauen zupfen</span><b>13 €</b></div>
-
-      <p style="margin-top:22px; color:#666; line-height:1.6;">
-        Alle Preise verstehen sich als Startpreise. Der endgültige Preis kann je nach Haarlänge,
-        Aufwand und gewünschter Leistung abweichen.
-      </p>
-    </div>
-  </div>
-
-  <div id="impressum" class="modal">
-    <div class="modal-box">
-      <a href="#" class="close">×</a>
-      <h2>Impressum</h2>
-      <p>
-        Berrin Turan<br>
-        Friseursalon Berry<br>
-        Pichelsdorfer Straße 130<br>
-        13595 Berlin<br><br>
-        Telefon: 0174 211 73 90
-      </p>
-    </div>
-  </div>
-
-  <div id="datenschutz" class="modal">
-    <div class="modal-box">
-      <a href="#" class="close">×</a>
-      <h2>Datenschutz</h2>
-      <p>
-        Hier wird die vollständige Datenschutzerklärung eingefügt.
-      </p>
-    </div>
-  </div>
-
-  <div id="cookies" class="modal">
-    <div class="modal-box">
-      <a href="#" class="close">×</a>
-      <h2>Cookie-Einstellungen</h2>
-      <p>
-        Diese Website verwendet aktuell keine aktiven Tracking-Cookies.
-      </p>
-    </div>
-  </div>
-
-<div id="biografie" class="modal">
-  <div class="modal-box">
-    <a href="#" class="close">×</a>
-
-    <h2>Über die Friseurmeisterin</h2>
-
-    <p style="line-height:1.8;">
-      Hier wird später die persönliche Biografie von Berrin Turan eingefügt.
-      Besucher können hier mehr über ihren beruflichen Werdegang,
-      ihre Erfahrung, Spezialisierungen und ihre Leidenschaft für das Friseurhandwerk erfahren.
-    </p>
-
-  </div>
-</div>
+  <div id="preise-modal" class="modal" role="dialog" aria-label="Preisliste"><div class="modal-box"><a href="#preise" class="close" aria-label="Schließen">×</a><h2>Preisliste</h2>
+    <div class="price-row"><span>Dauerwelle</span><b>ab 80 €</b></div><div class="price-row"><span>Volumenwelle</span><b>ab 60 €</b></div><div class="price-row"><span>Herrenhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Herren Bart</span><b>ab 10 €</b></div><div class="price-row"><span>Haarschnitt</span><b>ab 25 €</b></div><div class="price-row"><span>Kinderhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Ansatzfarbe ab 2 cm</span><b>ab 35 €</b></div><div class="price-row"><span>Komplettfarbe</span><b>ab 50 €</b></div><div class="price-row"><span>Strähnen Oberkopf</span><b>ab 60 €</b></div><div class="price-row"><span>Strähnen Komplett</span><b>ab 100 €</b></div><div class="price-row"><span>Hochzeitsfrisur</span><b>ab 150 €</b></div><div class="price-row"><span>Hochsteckfrisur</span><b>ab 60 €</b></div><div class="price-row"><span>Make-up</span><b>ab 50 €</b></div><div class="price-row"><span>Augenbrauen/Wimpern färben</span><b>13 €</b></div><div class="price-row"><span>Augenbrauen zupfen</span><b>13 €</b></div><div class="price-row"><span>Professionelle Haarverlängerung</span><b>Preis auf Anfrage</b></div><p class="price-footnote">Die angegebenen Preise sind Startpreise. Der endgültige Preis kann je nach Haarlänge, Aufwand und gewünschter Leistung abweichen.</p>
+  </div></div>
+  <div id="biografie" class="modal" role="dialog" aria-label="Über die Friseurmeisterin"><div class="modal-box"><a href="#ueber-uns" class="close" aria-label="Schließen">×</a><h2>Über die Friseurmeisterin</h2><p>Hier wird später die persönliche Biografie von Berrin Turan eingefügt. Besucher können hier mehr über ihren beruflichen Werdegang, ihre Erfahrung, Spezialisierungen und ihre Leidenschaft für das Friseurhandwerk erfahren.</p></div></div>
+  <div id="impressum" class="modal" role="dialog" aria-label="Impressum"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Impressum</h2><p>Berrin Turan<br>Friseursalon Berry<br>Pichelsdorfer Straße 130<br>13595 Berlin<br>Telefon: <a href="tel:+491742117390">0174 211 73 90</a></p></div></div>
+  <div id="datenschutz" class="modal" role="dialog" aria-label="Datenschutz"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Datenschutz</h2><p>Hier wird die vollständige Datenschutzerklärung eingefügt.</p></div></div>
+  <div id="cookies" class="modal" role="dialog" aria-label="Cookie-Einstellungen"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Cookie-Einstellungen</h2><p>Diese Website verwendet aktuell keine aktiven Tracking-Cookies.</p></div></div>
 
   <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
   <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
-
   <script>
+    // Den bestätigten SimplyBook.me-Buchungslink hier eintragen. Ohne Link bleibt der Onlinebutton verborgen.
+    const bookingUrl = '';
+    if (/^https:\/\//i.test(bookingUrl)) {
+      document.querySelectorAll('.booking-online').forEach(link => {
+        link.href = bookingUrl;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.hidden = false;
+      });
+      document.querySelector('#termin p:not(.eyebrow)').textContent = 'Buche online deinen freien Termin oder ruf uns während der Öffnungszeiten an.';
+    }
     const music = document.getElementById('background-music');
     const musicButton = document.getElementById('music-toggle');
     music.volume = 0.18;
-
     const savedTime = Number(sessionStorage.getItem('berryMusicTime'));
-    if (Number.isFinite(savedTime) && savedTime > 0) {
-      music.currentTime = savedTime;
-    }
-
+    if (Number.isFinite(savedTime) && savedTime > 0) music.currentTime = savedTime;
     function showMusicState(playing) {
       musicButton.textContent = playing ? '⏸ Musik pausieren' : '♫ Musik starten';
       musicButton.classList.toggle('playing', playing);
       musicButton.setAttribute('aria-label', playing ? 'Hintergrundmusik pausieren' : 'Hintergrundmusik starten');
     }
-
     musicButton.addEventListener('click', async () => {
       if (music.paused) {
-        try {
-          await music.play();
-          sessionStorage.setItem('berryMusicWanted', 'true');
-          showMusicState(true);
-        } catch (error) {
-          showMusicState(false);
-        }
-      } else {
-        music.pause();
-        sessionStorage.setItem('berryMusicWanted', 'false');
-        showMusicState(false);
-      }
+        try { await music.play(); sessionStorage.setItem('berryMusicWanted','true'); showMusicState(true); }
+        catch (error) { showMusicState(false); }
+      } else { music.pause(); sessionStorage.setItem('berryMusicWanted','false'); showMusicState(false); }
     });
-
-    music.addEventListener('timeupdate', () => {
-      sessionStorage.setItem('berryMusicTime', String(music.currentTime));
-    });
-
-    if (sessionStorage.getItem('berryMusicWanted') === 'true') {
-      music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
-    }
+    music.addEventListener('timeupdate', () => sessionStorage.setItem('berryMusicTime',String(music.currentTime)));
+    if (sessionStorage.getItem('berryMusicWanted') === 'true') music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
   </script>
 </body>
 </html>
