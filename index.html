@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Friseursalon Berry in Berlin-Spandau: Haarschnitte, Farbe, Styling und professionelle Haarverlängerung. Termine telefonisch vereinbaren.">
   <title>Friseursalon Berry · Dein Moment in Berlin-Spandau</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root{--ink:#222039;--navy:#242339;--plum:#41334f;--muted:#655e6a;--cream:#faf7f2;--sand:#ede3d5;--gold:#b99b79;--line:#ded4cb;--white:#fff;--shadow:0 20px 60px rgba(37,31,45,.12)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}button,a{font:inherit}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;line-height:1.13}h2{font-size:clamp(2.25rem,4.2vw,4rem)}p{color:var(--muted)}.wrap{width:min(1200px,88%);margin:auto}.eyebrow{color:#79667f;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;margin-bottom:18px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:3px;background:var(--navy);color:white;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:1px solid var(--navy);transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px);background:var(--plum)}.btn.light{background:transparent;color:var(--navy)}.btn.light:hover{background:var(--sand)}.btn.cream{background:var(--cream);border-color:var(--cream);color:var(--navy)}.btn.cream:hover{background:var(--sand)}[hidden]{display:none!important}
@@ -94,9 +91,22 @@
   
     .google-disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.35);pointer-events:none}
 
+  
+    /* Datenschutz: Google Fonts werden erst nach Einwilligung geladen. */
+    .consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:900px;margin:auto;padding:22px;background:#10172e;color:#f4eadc;border:1px solid #dfbd87;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+    .consent-banner[hidden]{display:none!important}.consent-banner h2{font-family:Georgia,serif;font-size:1.45rem;margin:0 0 8px;color:#ebc997}.consent-banner p{margin:0 0 15px;color:#e7dccd;font-size:.88rem}.consent-actions{display:flex;gap:10px;flex-wrap:wrap}.consent-actions button{cursor:pointer;min-height:42px;padding:9px 16px;border-radius:3px;font-weight:700}.consent-accept{background:#f4eadc;color:#070d20;border:1px solid #f4eadc}.consent-reject{background:transparent;color:#f4eadc;border:1px solid #d2b18b}.privacy-settings{cursor:pointer;text-decoration:underline}
   </style>
 </head>
 <body>
+  <div class="consent-banner" id="consent-banner" role="dialog" aria-modal="true" aria-labelledby="consent-title" hidden>
+    <h2 id="consent-title">Datenschutz-Einstellungen</h2>
+    <p>Wir möchten Google Web Fonts laden, damit unsere Website in der vorgesehenen Schrift dargestellt wird. Dabei kann eine Verbindung zu Google hergestellt und insbesondere Ihre IP-Adresse übermittelt werden. Sie können zustimmen oder die Website ohne Google Fonts nutzen.</p>
+    <div class="consent-actions">
+      <button class="consent-accept" id="consent-accept" type="button">Google Fonts akzeptieren</button>
+      <button class="consent-reject" id="consent-reject" type="button">Ablehnen</button>
+    </div>
+  </div>
+
   <header class="site-header"><div class="header-inner">
     <a class="brand" href="#start" aria-label="Friseursalon Berry Startseite"><strong>Berry</strong><small>Friseursalon · Berlin</small></a>
     <nav aria-label="Hauptnavigation"><a href="#start">Start</a><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#preise">Preise</a><a href="galerie.html">Galerie</a><a href="videos.html">Videos</a><a href="#kontakt">Kontakt</a><a href="#termin">Termin</a></nav>
@@ -176,7 +186,7 @@
     </div>
   </div>
 
-  <footer id="kontakt"><div class="wrap"><div class="footer-grid"><div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div><div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div><div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><p><a class="social-link" href="https://www.tiktok.com/@friseursalon.berry" target="_blank" rel="noopener noreferrer">♪ TikTok · @friseursalon.berry</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div><div><h4>Informationen</h4><p><a href="#preise-modal">Preisliste</a><br><a href="#impressum">Impressum</a><br><a href="#datenschutz">Datenschutz</a><br><a href="#cookies">Cookie-Einstellungen</a></p></div></div><div style="text-align:center;font-size:.76rem;color:#b9b2bb;margin-top:38px;margin-bottom:10px;">Zahlung vor Ort: Bar · PayPal</div><div class="copyright" style="margin-top:0;">© 2026 Friseursalon Berry · Berrin Turan</div></div></footer>
+  <footer id="kontakt"><div class="wrap"><div class="footer-grid"><div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div><div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div><div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><p><a class="social-link" href="https://www.tiktok.com/@friseursalon.berry" target="_blank" rel="noopener noreferrer">♪ TikTok · @friseursalon.berry</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div><div><h4>Informationen</h4><p><a href="#preise-modal">Preisliste</a><br><a href="#impressum">Impressum</a><br><a href="#datenschutz">Datenschutz</a><br><a href="#" data-privacy-settings>Datenschutz-Einstellungen</a></p></div></div><div style="text-align:center;font-size:.76rem;color:#b9b2bb;margin-top:38px;margin-bottom:10px;">Zahlung vor Ort: Bar · PayPal</div><div class="copyright" style="margin-top:0;">© 2026 Friseursalon Berry · Berrin Turan</div></div></footer>
 
   <div id="preise-modal" class="modal" role="dialog" aria-label="Preisliste"><div class="modal-box"><a href="#preise" class="close" aria-label="Schließen">×</a><h2>Preisliste</h2>
     <div class="price-row"><span>Dauerwelle</span><b>ab 80 €</b></div><div class="price-row"><span>Volumenwelle</span><b>ab 60 €</b></div><div class="price-row"><span>Herrenhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Herren Bart</span><b>ab 10 €</b></div><div class="price-row"><span>Haarschnitt</span><b>ab 25 €</b></div><div class="price-row"><span>Kinderhaarschnitt</span><b>ab 20 €</b></div><div class="price-row"><span>Ansatzfarbe ab 2 cm</span><b>ab 35 €</b></div><div class="price-row"><span>Komplettfarbe</span><b>ab 50 €</b></div><div class="price-row"><span>Strähnen Oberkopf</span><b>ab 60 €</b></div><div class="price-row"><span>Strähnen Komplett</span><b>ab 100 €</b></div><div class="price-row"><span>Hochzeitsfrisur</span><b>ab 150 €</b></div><div class="price-row"><span>Hochsteckfrisur</span><b>ab 60 €</b></div><div class="price-row"><span>Make-up</span><b>ab 50 €</b></div><div class="price-row"><span>Augenbrauen/Wimpern färben</span><b>13 €</b></div><div class="price-row"><span>Augenbrauen zupfen</span><b>13 €</b></div><div class="price-row"><span>Professionelle Haarverlängerung</span><b>Preis auf Anfrage</b></div><p class="price-footnote">Die angegebenen Preise sind Startpreise. Der endgültige Preis kann je nach Haarlänge, Aufwand und gewünschter Leistung abweichen.</p>
@@ -186,7 +196,6 @@
           <p><strong>Friseursalon Berry – Zeit für dich. Zeit für schönes Haar.</strong> Besucher können hier mehr über ihren beruflichen Werdegang, ihre Erfahrung, Spezialisierungen und ihre Leidenschaft für das Friseurhandwerk erfahren.</p></div></div>
   <div id="impressum" class="modal" role="dialog" aria-label="Impressum"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Impressum</h2><p>Berrin Turan<br>Friseursalon Berry<br>Pichelsdorfer Straße 130<br>13595 Berlin<br>Telefon: <a href="tel:+491742117390">0174 211 73 90</a></p></div></div>
   <div id="datenschutz" class="modal" role="dialog" aria-label="Datenschutz"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Datenschutz</h2><p>Hier wird die vollständige Datenschutzerklärung eingefügt.</p></div></div>
-  <div id="cookies" class="modal" role="dialog" aria-label="Cookie-Einstellungen"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Cookie-Einstellungen</h2><p>Diese Website verwendet aktuell keine aktiven Tracking-Cookies.</p></div></div>
 
   
   <div class="action-dock" aria-label="Schnellaktionen">
@@ -228,6 +237,25 @@
     if(extensionPopup) extensionPopup.addEventListener('click', (e) => { if(e.target === extensionPopup) closeExtensionPopup(); });
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeExtensionPopup(); });
 
+  </script>
+
+  <script>
+    (function(){
+      const KEY='berryGoogleFontsConsent';
+      const banner=document.getElementById('consent-banner');
+      function loadGoogleFonts(){
+        if(document.getElementById('berry-google-fonts')) return;
+        const pre1=document.createElement('link'); pre1.rel='preconnect'; pre1.href='https://fonts.googleapis.com'; document.head.appendChild(pre1);
+        const pre2=document.createElement('link'); pre2.rel='preconnect'; pre2.href='https://fonts.gstatic.com'; pre2.crossOrigin='anonymous'; document.head.appendChild(pre2);
+        const font=document.createElement('link'); font.id='berry-google-fonts'; font.rel='stylesheet'; font.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap'; document.head.appendChild(font);
+      }
+      function setChoice(value){ localStorage.setItem(KEY,value); banner.hidden=true; if(value==='accepted') loadGoogleFonts(); }
+      const choice=localStorage.getItem(KEY);
+      if(choice==='accepted') loadGoogleFonts(); else if(choice!=='rejected') banner.hidden=false;
+      document.getElementById('consent-accept').addEventListener('click',()=>setChoice('accepted'));
+      document.getElementById('consent-reject').addEventListener('click',()=>setChoice('rejected'));
+      document.querySelectorAll('[data-privacy-settings]').forEach(el=>el.addEventListener('click',function(e){e.preventDefault(); localStorage.removeItem(KEY); banner.hidden=false;}));
+    })();
   </script>
 </body>
 </html>

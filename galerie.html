@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Galerie des Friseursalon Berry in Berlin-Spandau: Einblicke in unseren Salon und ausgewählte Frisuren.">
   <title>Galerie · Friseursalon Berry · Berlin-Spandau</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{--ink:#e5c89e;--navy:#070d20;--plum:#171b34;--muted:#d8c5a9;--cream:#f4eadc;--sand:#e3d0b9;--gold:#dfbd87;--line:#ffffff30;--shadow:0 20px 60px rgba(2,4,13,.45)}
     *{box-sizing:border-box}
@@ -89,9 +86,22 @@
       .music-toggle{bottom:76px!important}
     }
 
+  
+    /* Datenschutz: Google Fonts werden erst nach Einwilligung geladen. */
+    .consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:900px;margin:auto;padding:22px;background:#10172e;color:#f4eadc;border:1px solid #dfbd87;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+    .consent-banner[hidden]{display:none!important}.consent-banner h2{font-family:Georgia,serif;font-size:1.45rem;margin:0 0 8px;color:#ebc997}.consent-banner p{margin:0 0 15px;color:#e7dccd;font-size:.88rem}.consent-actions{display:flex;gap:10px;flex-wrap:wrap}.consent-actions button{cursor:pointer;min-height:42px;padding:9px 16px;border-radius:3px;font-weight:700}.consent-accept{background:#f4eadc;color:#070d20;border:1px solid #f4eadc}.consent-reject{background:transparent;color:#f4eadc;border:1px solid #d2b18b}.privacy-settings{cursor:pointer;text-decoration:underline}
   </style>
 </head>
 <body>
+  <div class="consent-banner" id="consent-banner" role="dialog" aria-modal="true" aria-labelledby="consent-title" hidden>
+    <h2 id="consent-title">Datenschutz-Einstellungen</h2>
+    <p>Wir möchten Google Web Fonts laden, damit unsere Website in der vorgesehenen Schrift dargestellt wird. Dabei kann eine Verbindung zu Google hergestellt und insbesondere Ihre IP-Adresse übermittelt werden. Sie können zustimmen oder die Website ohne Google Fonts nutzen.</p>
+    <div class="consent-actions">
+      <button class="consent-accept" id="consent-accept" type="button">Google Fonts akzeptieren</button>
+      <button class="consent-reject" id="consent-reject" type="button">Ablehnen</button>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Friseursalon Berry Startseite"><strong>Berry</strong><small>Friseursalon · Berlin</small></a>
@@ -146,7 +156,7 @@
         <div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div>
         <div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div>
         <div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><p><a class="social-link" href="https://www.tiktok.com/@friseursalon.berry" target="_blank" rel="noopener noreferrer">♪ TikTok · @friseursalon.berry</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div>
-        <div><h4>Informationen</h4><p><a href="index.html#preise">Preisliste</a><br><a href="index.html#impressum">Impressum</a><br><a href="index.html#datenschutz">Datenschutz</a></p></div>
+        <div><h4>Informationen</h4><p><a href="index.html#preise">Preisliste</a><br><a href="index.html#impressum">Impressum</a><br><a href="index.html#datenschutz">Datenschutz</a><br><a href="#" data-privacy-settings>Datenschutz-Einstellungen</a></p></div>
       </div>
       <div class="payment">Zahlung vor Ort: Bar · PayPal</div>
       <div class="copyright">© 2026 Friseursalon Berry · Berrin Turan</div>
@@ -181,6 +191,25 @@
     });
     music.addEventListener('timeupdate', () => sessionStorage.setItem('berryMusicTime',String(music.currentTime)));
     if (sessionStorage.getItem('berryMusicWanted') === 'true') music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
+  </script>
+
+  <script>
+    (function(){
+      const KEY='berryGoogleFontsConsent';
+      const banner=document.getElementById('consent-banner');
+      function loadGoogleFonts(){
+        if(document.getElementById('berry-google-fonts')) return;
+        const pre1=document.createElement('link'); pre1.rel='preconnect'; pre1.href='https://fonts.googleapis.com'; document.head.appendChild(pre1);
+        const pre2=document.createElement('link'); pre2.rel='preconnect'; pre2.href='https://fonts.gstatic.com'; pre2.crossOrigin='anonymous'; document.head.appendChild(pre2);
+        const font=document.createElement('link'); font.id='berry-google-fonts'; font.rel='stylesheet'; font.href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap'; document.head.appendChild(font);
+      }
+      function setChoice(value){ localStorage.setItem(KEY,value); banner.hidden=true; if(value==='accepted') loadGoogleFonts(); }
+      const choice=localStorage.getItem(KEY);
+      if(choice==='accepted') loadGoogleFonts(); else if(choice!=='rejected') banner.hidden=false;
+      document.getElementById('consent-accept').addEventListener('click',()=>setChoice('accepted'));
+      document.getElementById('consent-reject').addEventListener('click',()=>setChoice('rejected'));
+      document.querySelectorAll('[data-privacy-settings]').forEach(el=>el.addEventListener('click',function(e){e.preventDefault(); localStorage.removeItem(KEY); banner.hidden=false;}));
+    })();
   </script>
 </body>
 </html>
