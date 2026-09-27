@@ -91,6 +91,9 @@
     .popup-close{position:absolute;right:14px;top:12px;border:0;background:transparent;color:#f4eadc;font-size:1.7rem;cursor:pointer}
     .popup-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 
+  
+    .google-disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.35);pointer-events:none}
+
   </style>
 </head>
 <body>
@@ -140,7 +143,7 @@
             <div class="bonus-reward">10 Besuche sammeln → 10 € Treuebonus</div>
           </div>
           <p>Hol dir bei deinem nächsten Besuch unsere Bonuskarte direkt im Salon.</p>
-          <p class="bonus-note">Die Bonuskarte ist ausschließlich vor Ort im Friseursalon Berry erhältlich und wird nicht online ausgegeben.</p>
+          <p class="bonus-note">Die Bonuskarte ist ausschließlich vor Ort im Friseursalon Berry erhältlich und wird nicht online ausgegeben. Eine Barauszahlung des Treuebonus ist nicht möglich.</p>
         </div>
       </div>
     </section>
@@ -155,7 +158,7 @@
           <div class="review-stars" aria-hidden="true">★★★★★</div>
           <h2>Zufrieden mit deinem Besuch?</h2>
           <p>Wir freuen uns über dein Feedback. Besuche unseren Google-Eintrag und teile deine Erfahrung mit Friseursalon Berry.</p>
-          <a class="btn" href="https://www.google.com/search?q=Friseursalon+Berry+Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Bei Google ansehen</a>
+          <span class="btn google-disabled" aria-disabled="true">Google-Bewertung · demnächst verfügbar</span>
         </div>
       </div>
     </section>
@@ -170,10 +173,6 @@
       <p class="eyebrow">Neu bei Berry</p>
       <h2 id="extension-title">Professionelle Haarverlängerung</h2>
       <p>Mehr Länge, mehr Volumen, mehr Möglichkeiten. Beratung und Preise individuell auf Anfrage – wir beraten dich gerne persönlich.</p>
-      <div class="popup-actions">
-        <a class="btn" href="tel:+491742117390">Beratung anrufen</a>
-        <a class="btn light" href="#leistungen" id="extension-more">Mehr erfahren</a>
-      </div>
     </div>
   </div>
 
@@ -216,7 +215,6 @@
   
     const extensionPopup = document.getElementById('extension-popup');
     const extensionClose = document.getElementById('extension-close');
-    const extensionMore = document.getElementById('extension-more');
     if (extensionPopup && sessionStorage.getItem('berryExtensionPopupSeen') !== 'true') {
       window.setTimeout(() => {
         extensionPopup.classList.add('show');
@@ -225,7 +223,6 @@
     }
     function closeExtensionPopup(){ if(extensionPopup) extensionPopup.classList.remove('show'); }
     if(extensionClose) extensionClose.addEventListener('click', closeExtensionPopup);
-    if(extensionMore) extensionMore.addEventListener('click', closeExtensionPopup);
     if(extensionPopup) extensionPopup.addEventListener('click', (e) => { if(e.target === extensionPopup) closeExtensionPopup(); });
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeExtensionPopup(); });
 
