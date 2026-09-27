@@ -1,303 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bilder aus dem Friseursalon Berry in Berlin-Spandau und ausgewählte Frisuren.">
-  <title>Galerie | Friseursalon Berry</title>
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3SIPt-XpK2GFuwiUbFKpc1jW0ybQ-S_595PP21GxaD3w7fcYREbOKt6lY3g4A2OMEgvKBYn1Ak1vMxFjLfr4BZowuBZ1MGhPc4lGh_lLWIO3DLssWY16uRstlIOYilUj45YiDmeO_hQKL2I20L8O9U-5iq9nEAORzodLAGX6RLMS_3ErVVNDDucRwWEHneV2XBWQ9Y74Of1sV3Dc1ajiVqIlpbZTqZtUk8SIx5qsuFfm9Lx-Eq-jRFP-SE5dpLICPQPDWbcEMydbr-Hkj8PIvA" charset="UTF-8"></script><style>
-    :root {
-      --blue: #159ee8;
-      --dark-blue: #0577b8;
-      --black: #0b0b0b;
-      --white: #fff;
-      --light: #f5f7fa;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Galerie des Friseursalon Berry in Berlin-Spandau: Einblicke in unseren Salon und ausgewählte Frisuren.">
+  <title>Galerie · Friseursalon Berry · Berlin-Spandau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#e5c89e;--navy:#070d20;--plum:#171b34;--muted:#d8c5a9;--cream:#f4eadc;--sand:#e3d0b9;--gold:#dfbd87;--line:#ffffff30;--shadow:0 20px 60px rgba(2,4,13,.45)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#070d20;color:var(--ink);font-family:'Manrope',Arial,sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3,.brand strong,footer h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.13}
+    p{color:var(--muted)}
+    .wrap{width:min(1200px,88%);margin:auto}
+    .eyebrow{color:#e2b977;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;margin-bottom:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:3px;background:var(--cream);color:var(--navy);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;border:1px solid var(--cream);transition:transform .2s,background .2s}
+    .btn:hover{transform:translateY(-2px);background:var(--sand)}
+    .btn.light{background:transparent;border-color:#e3d0b99c;color:var(--cream)}
+    .btn.light:hover{background:#e3d0b91f}
+
+    .site-header{background:rgba(5,10,25,.98);border-bottom:1px solid #e3d0b936;position:sticky;top:0;z-index:30}
+    .header-inner{width:min(1350px,94%);min-height:84px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;flex-direction:column;line-height:1;color:var(--cream);white-space:nowrap}
+    .brand strong{font-size:2.1rem;letter-spacing:.045em}
+    .brand small{text-transform:uppercase;letter-spacing:.28em;font-size:.62rem;margin-top:8px;color:#d4b795}
+    .site-header nav{display:flex;align-items:center;gap:clamp(12px,1.65vw,26px);font-size:.84rem}
+    .site-header nav a:hover,footer a:hover{color:#ebcba7}
+    .header-call{white-space:nowrap}
+
+    .gallery-hero{background:radial-gradient(circle at 82% 20%,#202742 0%,#10172e 43%,#050b1d 100%);border-bottom:1px solid #d2b18b55}
+    .gallery-hero .wrap{padding:90px 0 78px;text-align:center}
+    .gallery-hero h1{font-size:clamp(3.4rem,7vw,6.5rem);color:#ebc997;margin:0 0 20px}
+    .gallery-hero p:not(.eyebrow){max-width:700px;margin:0 auto;color:#d8c5a9;font-size:1.02rem}
+
+    .gallery-section{padding:90px 0 110px;background:#080f23}
+    .section-head{text-align:center;max-width:700px;margin:0 auto 50px}
+    .section-head h2{font-size:clamp(2.25rem,4.2vw,4rem);color:#ebc997;margin-bottom:17px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .photo{position:relative;margin:0;height:440px;overflow:hidden;border:1px solid #d2b18b66;background:#151d34}
+    .photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+    .photo:hover img{transform:scale(1.035)}
+    .photo span{position:absolute;left:0;right:0;bottom:0;padding:42px 20px 18px;color:#f4eadc;background:linear-gradient(transparent,rgba(4,9,24,.9));font-size:.86rem;font-weight:600}
+    .back{text-align:center;margin-top:45px}
+
+    footer{background:#040918;border-top:1px solid #d2b18b55;color:#fff;padding:70px 0 25px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1.2fr 1fr 1fr;gap:38px}
+    footer h3{font-size:1.7rem;margin-bottom:15px;color:var(--ink)}
+    footer h4{color:#d9b996;letter-spacing:.16em;font-size:.72rem;text-transform:uppercase;margin-bottom:17px}
+    footer p,footer a{color:#ded7d9;font-size:.86rem;line-height:1.9}
+    .payment{text-align:center;font-size:.76rem;color:#b9b2bb;margin-top:38px;margin-bottom:10px}
+    .copyright{border-top:1px solid #ffffff25;padding-top:22px;text-align:center;font-size:.76rem;color:#b9b2bb}
+    .quick-call{position:fixed;right:20px;bottom:20px;z-index:29;background:var(--cream);color:var(--navy);padding:12px 19px;border-radius:40px;box-shadow:var(--shadow);font-size:.8rem;font-weight:700}
+    .music-toggle{position:fixed;left:20px;bottom:20px;z-index:29;background:var(--cream);color:var(--navy);border:1px solid #cfb895;box-shadow:var(--shadow);padding:12px 18px;border-radius:40px;cursor:pointer;font-size:.8rem;font-weight:700}
+    .music-toggle.playing{background:#24263d;color:#fff}
+
+    @media(max-width:1100px){
+      .site-header nav{gap:12px}.site-header nav a{font-size:.74rem}.header-call{display:none}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    @media(max-width:760px){
+      .site-header{position:static}.header-inner{display:block;padding:18px 0}.brand{text-align:center;align-items:center}
+      .site-header nav{margin-top:17px;justify-content:center;flex-wrap:wrap;gap:8px 16px}
+      .gallery-hero .wrap{padding:65px 0 58px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.photo{height:330px}
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: var(--light);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    header {
-      min-height: 330px;
-      color: var(--white);
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58), rgba(0,0,0,.2)),
-        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop") center/cover;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      padding: 26px 7%;
-      background: rgba(0,0,0,.38);
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      line-height: 1;
-    }
-
-    .logo span {
-      display: block;
-      color: var(--blue);
-      font-size: 40px;
-      font-style: italic;
-      margin-top: 5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a:hover { color: var(--blue); }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      color: var(--white);
-      background: var(--blue);
-      border: 1px solid var(--blue);
-      border-radius: 3px;
-      font-weight: bold;
-    }
-
-    .btn:hover { background: var(--dark-blue); }
-
-    .intro {
-      padding: 54px 7% 65px;
-      max-width: 850px;
-    }
-
-    .intro small {
-      display: block;
-      color: #ddd;
-      font-size: 13px;
-      letter-spacing: 5px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: 58px;
-      line-height: 1.08;
-      margin-bottom: 16px;
-    }
-
-    .intro p {
-      max-width: 680px;
-      color: #eee;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    main {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 75px 5% 90px;
-    }
-
-    .section-label {
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      margin-bottom: 14px;
-      text-align: center;
-    }
-
-    h2 {
-      font-family: Georgia, serif;
-      font-size: 42px;
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .lead {
-      max-width: 720px;
-      margin: 0 auto 45px;
-      color: #555;
-      line-height: 1.7;
-      text-align: center;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .photo {
-      position: relative;
-      min-height: 500px;
-      overflow: hidden;
-      background: #ddd;
-      border-radius: 4px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.12);
-    }
-
-    .photo img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .45s ease;
-    }
-
-    .photo:hover img { transform: scale(1.035); }
-
-    .photo span {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 35px 20px 18px;
-      color: white;
-      background: linear-gradient(transparent, rgba(0,0,0,.82));
-      font-weight: bold;
-    }
-
-    .back {
-      text-align: center;
-      margin-top: 52px;
-    }
-
-    footer {
-      padding: 38px 7%;
-      color: #ccc;
-      background: #101010;
-      text-align: center;
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    .music-toggle {
-      position: fixed;
-      left: 22px;
-      bottom: 22px;
-      border: 0;
-      background: #111;
-      color: white;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font: inherit;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(0,0,0,.25);
-      z-index: 50;
-    }
-
-    .music-toggle:hover,
-    .music-toggle.playing {
-      background: var(--blue);
-    }
-
-    @media (max-width: 950px) {
-      .nav {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .nav-links { justify-content: center; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      h1 { font-size: 46px; }
-    }
-
-    @media (max-width: 600px) {
-      .nav-links { gap: 14px; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .photo { min-height: 540px; }
-      h1 { font-size: 39px; }
-      h2 { font-size: 35px; }
+    @media(max-width:520px){
+      .site-header nav a{font-size:.73rem}.wrap{width:88%}.gallery-grid{grid-template-columns:1fr 1fr;gap:7px}.photo{height:240px}
+      .photo span{padding:35px 10px 10px;font-size:.7rem}.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.footer-grid>div:first-child{grid-column:1/-1}
+      .quick-call{bottom:18px;right:12px}.music-toggle{bottom:18px;left:12px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <a class="logo" href="index.html">Friseursalon<span>Berry</span></a>
-      <nav class="nav-links" aria-label="Hauptnavigation">
-        <a href="index.html">Startseite</a>
-        <a href="index.html#ueber-uns">Über uns</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Friseursalon Berry Startseite"><strong>Berry</strong><small>Friseursalon · Berlin</small></a>
+      <nav aria-label="Hauptnavigation">
+        <a href="index.html">Start</a>
         <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#ueber-uns">Über uns</a>
         <a href="index.html#preise">Preise</a>
         <a href="galerie.html">Galerie</a>
         <a href="videos.html">Videos</a>
         <a href="index.html#kontakt">Kontakt</a>
-        <a class="btn" href="tel:+491742117390">📞 Jetzt anrufen</a>
+        <a href="index.html#termin">Termin</a>
       </nav>
-    </div>
-    <div class="intro">
-      <small>FRISEURSALON BERRY</small>
-      <h1>Unsere Galerie</h1>
-      <p>Entdecken Sie unseren Salon und ausgewählte Arbeiten. Neue Bilder und Frisuren werden hier nach und nach ergänzt.</p>
+      <a class="btn header-call" href="index.html#termin">Termin anfragen</a>
     </div>
   </header>
 
   <main>
-    <div class="section-label">EINBLICKE</div>
-    <h2>Salon &amp; Frisuren</h2>
-    <p class="lead">Ein heller Salon, persönliche Atmosphäre und sorgfältige Arbeit – verschaffen Sie sich einen ersten Eindruck.</p>
-
-    <!-- Für weitere Bilder einfach einen vollständigen .photo-Block kopieren und den Dateinamen ändern. -->
-    <section class="gallery-grid" aria-label="Bildergalerie">
-      <figure class="photo">
-        <img src="salon-wartebereich.jpg" alt="Heller Wartebereich im Friseursalon Berry">
-        <span>Unser Wartebereich</span>
-      </figure>
-      <figure class="photo">
-        <img src="salon-empfang.jpg" alt="Empfangsbereich im Friseursalon Berry">
-        <span>Empfang &amp; Beratung</span>
-      </figure>
-      <figure class="photo">
-        <img src="salon-waschplatz.jpg" alt="Waschplatz und Arbeitsplätze im Friseursalon Berry">
-        <span>Waschplatz</span>
-      </figure>
-      <figure class="photo">
-        <img src="salon-arbeitsplaetze.jpg" alt="Helle Arbeitsplätze mit Spiegeln im Friseursalon Berry">
-        <span>Unsere Arbeitsplätze</span>
-      </figure>
-      <figure class="photo">
-        <img src="hochsteckfrisur-hinten.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von hinten">
-        <span>Festliche Hochsteckfrisur</span>
-      </figure>
-      <figure class="photo">
-        <img src="hochsteckfrisur-seite.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von der Seite">
-        <span>Hochsteckfrisur mit Blütenschmuck</span>
-      </figure>
+    <section class="gallery-hero">
+      <div class="wrap">
+        <p class="eyebrow">Friseursalon Berry · Berlin-Spandau</p>
+        <h1>Unsere Galerie</h1>
+        <p>Entdecke unseren Salon und ausgewählte Arbeiten. Neue Bilder und Frisuren werden hier nach und nach ergänzt.</p>
+      </div>
     </section>
 
-    <div class="back">
-      <a class="btn" href="index.html">← Zurück zur Startseite</a>
-    </div>
+    <section class="gallery-section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Einblicke</p>
+          <h2>Salon &amp; Frisuren</h2>
+          <p>Ein moderner Salon, persönliche Atmosphäre und sorgfältige Arbeit – verschaffe dir einen ersten Eindruck.</p>
+        </div>
+
+        <div class="gallery-grid" aria-label="Bildergalerie">
+          <figure class="photo"><img src="salon-wartebereich.jpg" alt="Heller Wartebereich im Friseursalon Berry" loading="lazy"><span>Unser Wartebereich</span></figure>
+          <figure class="photo"><img src="salon-empfang.jpg" alt="Empfangsbereich im Friseursalon Berry" loading="lazy"><span>Empfang &amp; Beratung</span></figure>
+          <figure class="photo"><img src="salon-waschplatz.jpg" alt="Waschplatz im Friseursalon Berry" loading="lazy"><span>Waschplatz</span></figure>
+          <figure class="photo"><img src="salon-arbeitsplaetze.jpg" alt="Helle Arbeitsplätze mit Spiegeln im Friseursalon Berry" loading="lazy"><span>Unsere Arbeitsplätze</span></figure>
+          <figure class="photo"><img src="hochsteckfrisur-hinten.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von hinten" loading="lazy"><span>Festliche Hochsteckfrisur</span></figure>
+          <figure class="photo"><img src="hochsteckfrisur-seite.jpg" alt="Festliche Hochsteckfrisur mit kleinen weißen Blüten von der Seite" loading="lazy"><span>Hochsteckfrisur mit Blütenschmuck</span></figure>
+        </div>
+
+        <div class="back"><a class="btn light" href="index.html">← Zurück zur Startseite</a></div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    © 2026 Friseursalon Berry · Berrin Turan · Pichelsdorfer Straße 130 · 13595 Berlin
+  <footer id="kontakt">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><h3>Friseursalon Berry</h3><p>Inhaberin Berrin Turan<br>Pichelsdorfer Straße 130<br>13595 Berlin</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Pichelsdorfer+Stra%C3%9Fe+130+13595+Berlin" target="_blank" rel="noopener noreferrer">Route planen ↗</a></p></div>
+        <div><h4>Öffnungszeiten</h4><p>Montag: 09:00–13:00 Uhr<br>Dienstag–Freitag: 09:00–18:00 Uhr<br>Samstag: 09:00–15:00 Uhr<br>Sonntag: geschlossen</p></div>
+        <div><h4>Kontakt</h4><p><a href="tel:+491742117390">0174 211 73 90</a></p><h4>Entdecken</h4><p><a href="galerie.html">Galerie</a><br><a href="videos.html">Videos</a></p></div>
+        <div><h4>Informationen</h4><p><a href="index.html#preise">Preisliste</a><br><a href="index.html#impressum">Impressum</a><br><a href="index.html#datenschutz">Datenschutz</a></p></div>
+      </div>
+      <div class="payment">Zahlung vor Ort: Bar · PayPal</div>
+      <div class="copyright">© 2026 Friseursalon Berry · Berrin Turan</div>
+    </div>
   </footer>
 
+  <a class="quick-call" href="tel:+491742117390" aria-label="Friseursalon Berry anrufen">☎ Anrufen</a>
   <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
   <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
 
@@ -305,41 +146,23 @@
     const music = document.getElementById('background-music');
     const musicButton = document.getElementById('music-toggle');
     music.volume = 0.18;
-
     const savedTime = Number(sessionStorage.getItem('berryMusicTime'));
-    if (Number.isFinite(savedTime) && savedTime > 0) {
-      music.currentTime = savedTime;
-    }
-
+    if (Number.isFinite(savedTime) && savedTime > 0) music.currentTime = savedTime;
     function showMusicState(playing) {
       musicButton.textContent = playing ? '⏸ Musik pausieren' : '♫ Musik starten';
       musicButton.classList.toggle('playing', playing);
       musicButton.setAttribute('aria-label', playing ? 'Hintergrundmusik pausieren' : 'Hintergrundmusik starten');
     }
-
     musicButton.addEventListener('click', async () => {
       if (music.paused) {
-        try {
-          await music.play();
-          sessionStorage.setItem('berryMusicWanted', 'true');
-          showMusicState(true);
-        } catch (error) {
-          showMusicState(false);
-        }
+        try { await music.play(); sessionStorage.setItem('berryMusicWanted','true'); showMusicState(true); }
+        catch (error) { showMusicState(false); }
       } else {
-        music.pause();
-        sessionStorage.setItem('berryMusicWanted', 'false');
-        showMusicState(false);
+        music.pause(); sessionStorage.setItem('berryMusicWanted','false'); showMusicState(false);
       }
     });
-
-    music.addEventListener('timeupdate', () => {
-      sessionStorage.setItem('berryMusicTime', String(music.currentTime));
-    });
-
-    if (sessionStorage.getItem('berryMusicWanted') === 'true') {
-      music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
-    }
+    music.addEventListener('timeupdate', () => sessionStorage.setItem('berryMusicTime',String(music.currentTime)));
+    if (sessionStorage.getItem('berryMusicWanted') === 'true') music.play().then(() => showMusicState(true)).catch(() => showMusicState(false));
   </script>
 </body>
 </html>
