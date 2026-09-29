@@ -101,13 +101,23 @@
     .products-showcase img{width:100%;height:auto;border:1px solid #cdbba8;box-shadow:0 20px 60px rgba(2,4,13,.22)}
     .products-note{text-align:center;margin:25px auto 0;max-width:760px;color:#4d4d59}
 
+
+    /* Hinweis vor Weiterleitung zur externen Terminbuchung */
+    .booking-exit-popup{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(2,5,15,.82);backdrop-filter:blur(7px)}
+    .booking-exit-popup.show{display:flex}
+    .booking-exit-box{position:relative;width:min(560px,100%);padding:42px 34px 34px;background:linear-gradient(145deg,#10172e,#1b2340);border:1px solid #dfbd8799;box-shadow:0 30px 90px rgba(0,0,0,.6);text-align:center}
+    .booking-exit-box h2{font-size:clamp(2rem,5vw,3.2rem);color:#ebc997;margin:6px 0 14px}
+    .booking-exit-box p{max-width:470px;margin:0 auto 24px;color:#d8c5a9}
+    .booking-exit-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .booking-exit-actions button{cursor:pointer}
+
   </style>
 </head>
 <body>
   <header class="site-header"><div class="header-inner">
     <a class="brand" href="#start" aria-label="Friseursalon Berry Startseite"><strong>Berry</strong><small>Friseursalon · Berlin</small></a>
     <nav aria-label="Hauptnavigation"><a href="#start">Start</a><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#preise">Preise</a><a href="#produkte">Produkte</a><a href="galerie.html">Galerie</a><a href="videos.html">Videos</a><a href="#kontakt">Kontakt</a><a href="#termin">Termin</a></nav>
-    <a class="btn header-call" href="https://friseursalonberry.setmore.com" target="_blank" rel="noopener noreferrer">Termin anfragen</a>
+    <a class="btn header-call" href="https://friseursalonberry.setmore.com" class="external-booking-link" target="_blank" rel="noopener noreferrer">Termin anfragen</a>
   </div></header>
 
   <main>
@@ -185,7 +195,7 @@
       </div>
     </section>
 
-    <section class="booking" id="termin"><div class="wrap"><p class="eyebrow" style="color:#d6bba8">Dein nächster Besuch</p><h2>Wir freuen uns auf dich.</h2><p>Buche deinen Termin bequem online oder ruf uns während der Öffnungszeiten an.</p><div class="booking-actions"><a class="btn cream" href="https://friseursalonberry.setmore.com" target="_blank" rel="noopener noreferrer">Online-Termin buchen</a><a class="btn light" href="tel:+491742117390">0174 211 73 90 anrufen</a></div></div></section>
+    <section class="booking" id="termin"><div class="wrap"><p class="eyebrow" style="color:#d6bba8">Dein nächster Besuch</p><h2>Wir freuen uns auf dich.</h2><p>Buche deinen Termin bequem online oder ruf uns während der Öffnungszeiten an.</p><div class="booking-actions"><a class="btn cream" href="https://friseursalonberry.setmore.com" class="external-booking-link" target="_blank" rel="noopener noreferrer">Online-Termin buchen</a><a class="btn light" href="tel:+491742117390">0174 211 73 90 anrufen</a></div></div></section>
   </main>
 
 
@@ -245,9 +255,23 @@
   <div id="cookies" class="modal" role="dialog" aria-label="Cookie-Einstellungen"><div class="modal-box"><a href="#kontakt" class="close" aria-label="Schließen">×</a><h2>Cookie-Einstellungen</h2><p>Diese Website verwendet aktuell keine aktiven Tracking-Cookies.</p></div></div>
 
   
+
+  <div class="booking-exit-popup" id="booking-exit-popup" role="dialog" aria-modal="true" aria-labelledby="booking-exit-title">
+    <div class="booking-exit-box">
+      <button class="popup-close" id="booking-exit-close" type="button" aria-label="Fenster schließen">×</button>
+      <p class="eyebrow">Online-Terminbuchung</p>
+      <h2 id="booking-exit-title">Du verlässt unsere Website.</h2>
+      <p>Für die Online-Terminbuchung wirst du zur externen Buchungsseite von Setmore weitergeleitet. Dort gelten die Datenschutzbestimmungen von Setmore.</p>
+      <div class="booking-exit-actions">
+        <a class="btn cream" id="booking-exit-continue" href="https://friseursalonberry.setmore.com" target="_blank" rel="noopener noreferrer">Weiter zur Terminbuchung</a>
+        <button class="btn light" id="booking-exit-cancel" type="button">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
   <div class="action-dock" aria-label="Schnellaktionen">
     <a class="action-call" href="tel:+491742117390">☎ Anrufen</a>
-    <a class="action-book" href="https://friseursalonberry.setmore.com" target="_blank" rel="noopener noreferrer">📅 Termin buchen</a>
+    <a class="action-book" href="https://friseursalonberry.setmore.com" class="external-booking-link" target="_blank" rel="noopener noreferrer">📅 Termin buchen</a>
   </div>
   <audio id="background-music" src="stilvolle-auszeit.mp3" loop preload="metadata"></audio>
   <button class="music-toggle" id="music-toggle" type="button" aria-label="Hintergrundmusik starten">♫ Musik starten</button>
@@ -283,6 +307,23 @@
     if(extensionClose) extensionClose.addEventListener('click', closeExtensionPopup);
     if(extensionPopup) extensionPopup.addEventListener('click', (e) => { if(e.target === extensionPopup) closeExtensionPopup(); });
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeExtensionPopup(); });
+
+    const bookingExitPopup = document.getElementById('booking-exit-popup');
+    const bookingExitClose = document.getElementById('booking-exit-close');
+    const bookingExitCancel = document.getElementById('booking-exit-cancel');
+    const bookingExitContinue = document.getElementById('booking-exit-continue');
+    const bookingLinks = document.querySelectorAll('a[href="https://friseursalonberry.setmore.com"]:not(#booking-exit-continue)');
+
+    function closeBookingExitPopup(){ if(bookingExitPopup) bookingExitPopup.classList.remove('show'); }
+    bookingLinks.forEach(link => link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(bookingExitPopup) bookingExitPopup.classList.add('show');
+    }));
+    if(bookingExitClose) bookingExitClose.addEventListener('click', closeBookingExitPopup);
+    if(bookingExitCancel) bookingExitCancel.addEventListener('click', closeBookingExitPopup);
+    if(bookingExitContinue) bookingExitContinue.addEventListener('click', closeBookingExitPopup);
+    if(bookingExitPopup) bookingExitPopup.addEventListener('click', (e) => { if(e.target === bookingExitPopup) closeBookingExitPopup(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeBookingExitPopup(); });
 
   </script>
 </body>
